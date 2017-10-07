@@ -2,7 +2,7 @@ package br.unicamp.bookstore.model;
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class StatusEncomenda {
+public class StatusEntrega {
 
 	@XmlElement(name = "tipo")
 	private String tipo;

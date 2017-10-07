@@ -57,14 +57,6 @@ public class CalculaFreteSteps {
 		wireMockServer.stop();
 	}
 	
-
-	@Dado("^um CEP válido:$")
-	public void eu_possuo_um_CEP_valido(Map<String, String> map) throws Throwable {
-		cep = map.get("cep");
-		wireMockServer.stubFor(get(urlMatching("/ws/"+ cep + ".*")).willReturn(aResponse().withStatus(200)
-				.withHeader("Content-Type", "text/xml").withBodyFile("resultado-pesquisa-BuscaEndereco.xml")));
-	}
-	
 	@Quando("^eu informo o CEP no carrinho de compras$")
 	public void eu_informo_o_CEP_na_busca_de_endereco() throws Throwable {
 		throwable = catchThrowable(() -> this.precoPrazo = precoPrazoService.buscar(cep));
