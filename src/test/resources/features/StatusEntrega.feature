@@ -23,7 +23,7 @@ Funcionalidade: Consultar Status Entrega
   Cenário: Consultar código de rastreio invalido.
     Dado um código de rastreio invalido inválido:
       | código de rastreio | 1234567890 |
-    Quando eu informo o código de rastreio inválido:
+    Quando eu informo o codigo de rastreio na consulta de status
     Então uma exceção deve ser lançada com a mensagem de erro:
     """
     O código de rastreio informado é invalido
@@ -33,7 +33,7 @@ Funcionalidade: Consultar Status Entrega
     Dado um código de rastreio válido:
       | código de rastreio | SQ458226057BR |
     E o serviço sro não esta respondendo
-    Quando eu informo o código de rastreio na consulta de status
+    Quando eu informo o codigo de rastreio na consulta de status
     Então uma exceção deve ser lançada com a mensagem de erro:
     """
     Serviço indisponivel

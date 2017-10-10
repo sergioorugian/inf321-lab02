@@ -12,6 +12,9 @@ public class StatusEntrega {
 
 	@XmlElement(name = "descricao")
 	private String descricao;
+	
+	@XmlElement(name = "erro")
+	private String erro;
 
 	public String getTipo() {
 		return tipo;
@@ -21,6 +24,9 @@ public class StatusEntrega {
 		return status;
 	}
 
+	public String getErro(){
+		return erro;  
+	}
 	public String getDescricao() {
 		return descricao;
 	}
