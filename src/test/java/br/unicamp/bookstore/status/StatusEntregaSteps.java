@@ -46,7 +46,7 @@ public class StatusEntregaSteps {
 		wireMockServer = new WireMockServer(9876);
 		wireMockServer.start();
 		MockitoAnnotations.initMocks(this);
-		Mockito.when(configuration.getBuscarEnderecoUrl()).thenReturn("http://localhost:9876/ws");
+		Mockito.when(configuration.getStatusEntregaUrl()).thenReturn("http://localhost:9876/ws");
 		statusEntrega = null;
 		codigoRastreio = null;
 		throwable = null;
@@ -57,8 +57,8 @@ public class StatusEntregaSteps {
 		wireMockServer.stop();
 	}
 	
-	@Dado("^um Código de rastreio válido:$")
-	public void um_Código_de_rastreio_válido(Map<String, String> map) throws Throwable {
+	@Dado("^um código de rastreio válido:$")
+	public void um_código_de_rastreio_válido(Map<String, String> map) throws Throwable {
 		codigoRastreio = map.get("codigoRastreio");
 		wireMockServer.stubFor(get(urlMatching("/ws/"+ codigoRastreio + ".*")).willReturn(aResponse().withStatus(200)
 				.withHeader("Content-Type", "text/xml").withBodyFile("resultado-pesquisa-BuscaStatus.xml")));
@@ -74,18 +74,19 @@ public class StatusEntregaSteps {
 	@Dado("^um Código de rastreio  não existente:$")
 	public void um_Código_de_rastreio_não_existente(Map<String, String> map) throws Throwable {
 		codigoRastreio = map.get("codigoRastreio");
-		wireMockServer.stubFor(get(urlMatching("/ws/" + codigoRastreio + ".*")).willReturn(aResponse().withStatus(200)
+		wireMockServer.stubFor(get(urlMatching("/ws/"+ codigoRastreio + ".*")).willReturn(aResponse().withStatus(200)
 				.withHeader("Content-Type", "text/xml").withBodyFile("resultado-pesquisa-BuscaStatus_ERR.xml")));
 	}
 
-	@Quando("^eu informo o código de rastreio na consulta de status$")
-	public void eu_informo_o_código_de_rastreio_na_consulta_de_status() throws Throwable {
+	@Quando("^eu informo o codigo de rastreio na consulta de status:$")
+	public void eu_informo_o_codigo_de_rastreio_na_consulta_de_status() throws Throwable {
 		throwable = catchThrowable(() -> this.statusEntrega = statusEntregaService.buscar(codigoRastreio));
 	}
 
 	@Então("^o resultado deve ser o retorno da consulta:$")
 	public void o_resultado_deve_ser_o_retorno_da_consulta(List<Map<String,String>> resultado) throws Throwable {
-		assertThat(this.statusEntrega.getErro()).isEqualTo(resultado.get(0).get("erro"));
+		assertThat(this.statusEntrega.getStatus()).isEqualTo(resultado.get(0).get("Status"));
+		assertThat(this.statusEntrega.getDescricao()).isEqualTo(resultado.get(0).get("Descricao"));
 		assertThat(throwable).isNull();
 	}
 
@@ -93,7 +94,7 @@ public class StatusEntregaSteps {
 	public void um_código_de_rastreio_invalido_inválido(Map<String, String> map) throws Throwable {
 		codigoRastreio = map.get("codigoRastreio");
 		wireMockServer.stubFor(get(urlMatching("/ws/" + codigoRastreio + ".*"))
-				.willReturn(aResponse().withStatus(400).withHeader("Content-Type", "text/xml")
+				.willReturn(aResponse().withStatus(410).withHeader("Content-Type", "text/xml")
 						.withBodyFile("resultado-pesquisa-BuscaStatus_BAD.xml")));
 	}
 
