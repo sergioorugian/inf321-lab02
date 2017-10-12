@@ -5,34 +5,25 @@ Funcionalidade: Calcular preço e prazo
   Para que eu possa saber o valor total do meu pedido
 
   Cenário: Consultar um cep valido
-    Dado um CEP válido:
+    Dado um CEP valido:
       | cep | 71939360 |
     Quando eu informo o CEP no carrinho de compras
-    Então o resultado deve ser o prazo e valor:
+    Entao o resultado deve ser o prazo e valor:
       | Prazo entrega    | 1 |
       | Valor            | 17,20 |
 
-  Cenário: Consultar um endereço com CEP não existente
-    Dado um CEP não existente:
+  Cenário: Consultar um CEP nao existente
+    Dado um CEP nao existente:
       | cep | 99999999 |
-    Quando eu informo o CEP na busca de endereço
-    Então o retorno deve conter um valor de erro igual a "true"
+    Quando eu informo o CEP no carrinho de compras
+    Entao o retorno deve conter um valor de erro igual a "-3"
 
-  Cenário: Consultar um endereço com CEP invalido.
-    Dado um CEP inválido:
-      | cep | 1234567890 |
-    Quando eu informo o CEP na busca de endereço
-    Então uma exceção deve ser lançada com a mensagem de erro:
-    """
-    O CEP informado é invalido
-    """
-
-  Cenário: Serviço ViaCep não responde
-    Dado um CEP válido:
+  Cenário: Servico ViaCep nao responde
+    Dado um CEP valido:
       | cep | 13083970 |
-    E o serviço ViaCep não esta respondendo
+    E o servico ViaCep nao esta respondendo
     Quando eu informo o CEP na busca de endereço
-    Então uma exceção deve ser lançada com a mensagem de erro:
+    Entao uma excecao deve ser lancada com a mensagem de erro:
     """
-    Serviço indisponivel
+    Servico indisponivel
     """
