@@ -53,6 +53,9 @@ public class RemoteService {
             if (((HttpURLConnection) connection).getResponseCode() == 400) {
                 throw new Exception("O CEP informado é invalido");
             }
+            if (((HttpURLConnection) connection).getResponseCode() == 410) {
+                throw new Exception("O código de rastreio informado é invalido");
+            }
             return builder.parse(connection.getInputStream());
         } catch (ParserConfigurationException | SAXException e) {
             throw new Exception(e);
