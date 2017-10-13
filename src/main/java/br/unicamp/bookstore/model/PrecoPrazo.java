@@ -6,85 +6,86 @@ import java.text.ParseException;
 import javax.xml.bind.annotation.XmlElement;
 
 public class PrecoPrazo {
-	@XmlElement(name = "Codigo")
-	private Integer codigo;
 
-	@XmlElement(name = "Valor")
-	private String valor;
+    @XmlElement(name = "Codigo")
+    private Integer codigo;
 
-	@XmlElement(name = "PrazoEntrega")
-	private Integer prazoEntrega;
+    @XmlElement(name = "Valor")
+    private String valor;
 
-	@XmlElement(name = "ValorMaoPropria")
-	private String valorMaoPropria;
+    @XmlElement(name = "PrazoEntrega")
+    private Integer prazoEntrega;
 
-	@XmlElement(name = "ValorAvisoRecebimento")
-	private String valorAvisoRecebimento;
+    @XmlElement(name = "ValorMaoPropria")
+    private String valorMaoPropria;
 
-	@XmlElement(name = "ValorValorDeclarado")
-	private String valorValorDeclarado;
+    @XmlElement(name = "ValorAvisoRecebimento")
+    private String valorAvisoRecebimento;
 
-	@XmlElement(name = "EntregaDomiciliar")
-	private String entregaDomiciliar;
+    @XmlElement(name = "ValorValorDeclarado")
+    private String valorValorDeclarado;
 
-	@XmlElement(name = "EntregaSabado")
-	private String entregaSabado;
+    @XmlElement(name = "EntregaDomiciliar")
+    private String entregaDomiciliar;
 
-	@XmlElement(name = "Erro")
-	private String erro;
+    @XmlElement(name = "EntregaSabado")
+    private String entregaSabado;
 
-	@XmlElement(name = "MsgErro")
-	private String msgErro;
+    @XmlElement(name = "Erro")
+    private String erro;
 
-	public String getMsgErro() {
-		return msgErro;
-	}
+    @XmlElement(name = "MsgErro")
+    private String msgErro;
 
-	public Integer getCodigo() {
-		return codigo;
-	}
+    public String getMsgErro() {
+        return msgErro;
+    }
 
-	public Double getValorFrete() {
-		try {
-			return new DecimalFormat("##,##").parse(valor).doubleValue();
-		} catch (ParseException e) {
-			return null;
-		}
-	}
+    public Integer getCodigo() {
+        return codigo;
+    }
 
-	public String getValor() {
-		return valor;
-	}
+    public Double getValorFrete() {
+        try {
+            return new DecimalFormat("##,##").parse(valor).doubleValue();
+        } catch (ParseException e) {
+            return null;
+        }
+    }
 
-	public Integer getPrazoEntrega() {
-		return prazoEntrega;
-	}
+    public String getValor() {
+        return valor;
+    }
 
-	public String getValorMaoPropria() {
-		return valorMaoPropria;
-	}
+    public Integer getPrazoEntrega() {
+        return prazoEntrega;
+    }
 
-	public String getValorAvisoRecebimento() {
-		return valorAvisoRecebimento;
-	}
+    public String getValorMaoPropria() {
+        return valorMaoPropria;
+    }
 
-	public String getValorValorDeclarado() {
-		return valorValorDeclarado;
-	}
+    public String getValorAvisoRecebimento() {
+        return valorAvisoRecebimento;
+    }
 
-	public String getEntregaDomiciliar() {
-		return entregaDomiciliar;
-	}
+    public String getValorValorDeclarado() {
+        return valorValorDeclarado;
+    }
 
-	public String getEntregaSabado() {
-		return entregaSabado;
-	}
+    public String getEntregaDomiciliar() {
+        return entregaDomiciliar;
+    }
 
-	public String getErro() {
-		return erro;
-	}
+    public String getEntregaSabado() {
+        return entregaSabado;
+    }
 
-	public boolean hasError() {
-		return !"0".equals(erro);
-	}
+    public String getErro() {
+        return erro;
+    }
+
+    public boolean hasError() {
+        return !"0".equals(erro);
+    }
 }

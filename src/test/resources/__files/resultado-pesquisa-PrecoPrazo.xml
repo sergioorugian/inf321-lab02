@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Servicos>
-	<cServico>
-		<Codigo>40010</Codigo>
-		<Valor>17,20</Valor>
-		<PrazoEntrega>1</PrazoEntrega>
-		<ValorSemAdicionais>17,20</ValorSemAdicionais>
-		<ValorMaoPropria>0,00</ValorMaoPropria>
-		<ValorAvisoRecebimento>0,00</ValorAvisoRecebimento>
-		<ValorValorDeclarado>0,00</ValorValorDeclarado>
-		<EntregaDomiciliar>S</EntregaDomiciliar>
-		<EntregaSabado>S</EntregaSabado>
-		<Erro>0</Erro>
-		<MsgErro />
-		<obsFim />
-	</cServico>
+    <!--<cServico>-->
+        <Codigo>40010</Codigo>
+        <Valor>17,20</Valor>
+        <PrazoEntrega>1</PrazoEntrega>
+        <ValorSemAdicionais>17,20</ValorSemAdicionais>
+        <ValorMaoPropria>0,00</ValorMaoPropria>
+        <ValorAvisoRecebimento>0,00</ValorAvisoRecebimento>
+        <ValorValorDeclarado>0,00</ValorValorDeclarado>
+        <EntregaDomiciliar>S</EntregaDomiciliar>
+        <EntregaSabado>S</EntregaSabado>
+        <Erro>0</Erro>
+        <MsgErro />
+        <obsFim />
+    <!--</cServico>-->
 </Servicos>
