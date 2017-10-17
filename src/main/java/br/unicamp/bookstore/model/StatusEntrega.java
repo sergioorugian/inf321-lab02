@@ -15,6 +15,12 @@ public class StatusEntrega {
 	
 	@XmlElement(name = "erro")
 	private String erro;
+	
+	@XmlElement(name = "cidade")
+	private String cidade;
+	
+	@XmlElement(name = "local")
+	private String local;
 
 	public String getTipo() {
 		return tipo;
@@ -29,6 +35,14 @@ public class StatusEntrega {
 	}
 	public String getDescricao() {
 		return descricao;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public String getLocal() {
+		return local;
 	}
 
 }

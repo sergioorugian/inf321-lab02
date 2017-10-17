@@ -9,8 +9,8 @@ Funcionalidade: Consultar Status Entrega
       | codigoRastreio | SQ458226057BR |
     Quando eu informo o codigo de rastreio na consulta de status:
     Então o resultado deve ser as informações do rastreio:
-      | Descrição       | Data  |   Hora  |  Cidade    | Local     |
-      |  Entregue| 07/10/2017   |   09:13 |  Campinas  | CDD Barao |
+      | Descricao 	| Data  	|   Hora  |  Cidade    | Local     |
+      |  Entregue | 07/10/2017   |   09:13 |  Campinas  | CDD Barao |
 
   Cenário: Consultar um Código de rastreio que não existe
     Dado um Código de rastreio  não existente:
@@ -18,7 +18,7 @@ Funcionalidade: Consultar Status Entrega
     Quando eu informo o codigo de rastreio na consulta de status:
     Então o resultado deve ser o retorno da consulta:
       | Status | Descricao  				|
-      |    09   |    Objeto não localizado	|
+      |    09  |    Objeto não localizado	|
 
   Cenário: Consultar código de rastreio invalido.
     Dado um código de rastreio invalido inválido:
